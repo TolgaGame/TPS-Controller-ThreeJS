@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Combat TPS Prototype</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+      font-family: sans-serif;
+    }
+
+    #app {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      outline: none;
+    }
+
+    #hint {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      color: #f2f2f2;
+      font-size: 13px;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(2px);
+      padding: 12px 16px;
+      border-radius: 8px;
+      pointer-events: none;
+      user-select: none;
+      line-height: 1.5;
+    }
+
+    #hint .row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    /* Key badge — mimics a physical keycap so the label reads as
+       "this key = this action" at a glance instead of running the
+       whole sentence together. */
+    #hint kbd {
+      display: inline-block;
+      min-width: 1.4em;
+      text-align: center;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+
+    #hint .action {
+      margin-right: 10px;
+      color: #cfcfcf;
+    }
+
+    #hint .divider {
+      opacity: 0.35;
+      margin: 2px 0;
+      border: none;
+      border-top: 1px solid #fff;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="app"></canvas>
+  <div id="hint">
+    <div class="row">
+      <kbd>Click</kbd><span class="action">lock mouse</span>
+      <kbd>WASD</kbd><span class="action">move</span>
+      <kbd>Shift</kbd><span class="action">sprint</span>
+    </div>
+    <div class="row">
+      <kbd>Space</kbd><span class="action">jump / wall jump</span>
+      <kbd>Q</kbd><span class="action">dash</span>
+      <kbd>Ctrl</kbd><span class="action">slide</span>
+      <kbd>E</kbd><span class="action">vault</span>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
